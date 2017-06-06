@@ -1,0 +1,23 @@
+{
+  "name": "angular-bootstrap",
+  "version": "1.0.0",
+  "description": "Wordpress theme using the REST api and angular with bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinDahlberg/wp-angular-bootstrap.git"
+  },
+  "author": "Kevin Dahlberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinDahlberg/wp-angular-bootstrap/issues"
+  },
+  "homepage": "https://github.com/KevinDahlberg/wp-angular-bootstrap#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4"
+  }
+}

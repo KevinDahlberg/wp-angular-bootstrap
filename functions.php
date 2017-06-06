@@ -4,7 +4,7 @@
  *
  * @package _tk
  */
- 
+
  /**
   * Store the theme's directory path and uri in constants
   */
@@ -58,7 +58,7 @@ function _tk_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 		) ) );
-	
+
 	/**
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
@@ -126,7 +126,16 @@ function _tk_scripts() {
 		wp_enqueue_script( '_tk-keyboard-image-navigation', THEME_DIR_URI . '/includes/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
 	}
 
+  //load angular
+  wp_enqueue_script('angularjs', get_template_directory_uri() .'/node_modules/angular/angular.min.js');
+  wp_enqueue_script('angularjs-route', get_template_directory_uri() .'/node_modules/angular-route/angular-route.min.js');
+  wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/includes/js/scripts.js', array( 'angularjs', 'angularjs-route' ));
+
+  // With get_stylesheet_directory_uri()
+  wp_localize_script('scripts', 'localized',
+  array('partials' => get_stylesheet_directory_uri() . '/partials/'));
 }
+
 add_action( 'wp_enqueue_scripts', '_tk_scripts' );
 
 /**
