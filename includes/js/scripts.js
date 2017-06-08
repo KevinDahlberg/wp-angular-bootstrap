@@ -1,9 +1,17 @@
-angular.module('wp', ['ngRoute'])
+angular.module('wp', ['ngRoute', 'ngSanitize'])
 .config(function($routeProvider, $locationProvider) {
+
     $routeProvider
     .when('/', {
         templateUrl: localized.partials + 'main.html',
         controller: 'Main'
+    })
+    .when('/:slug', {
+        templateUrl: localized.partials + 'content.html',
+        controller: 'Content'
+    })
+    .otherwise({
+        redirectTo: '/'
     });
 })
 
@@ -19,4 +27,13 @@ angular.module('wp', ['ngRoute'])
 
   getPosts();
 
-});
+})
+
+.controller('Content',
+        ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+          console.log('content controller loaded');
+            $http.get('/wp-json/wp/v2/posts/?filter[name]=' + $routeParams.slug).then(function(res){
+              console.log(res);
+                $scope.post = res.data[0];
+            });
+}]);

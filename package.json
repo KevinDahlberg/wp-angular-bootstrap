@@ -18,6 +18,7 @@
   "homepage": "https://github.com/KevinDahlberg/wp-angular-bootstrap#readme",
   "dependencies": {
     "angular": "^1.6.4",
-    "angular-route": "^1.6.4"
+    "angular-route": "^1.6.4",
+    "angular-sanitize": "^1.6.4"
   }
 }
